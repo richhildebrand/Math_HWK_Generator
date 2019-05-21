@@ -19,6 +19,15 @@
     border-bottom: 2px solid black;
 }
 
+.dividend {
+    border-left: 2px solid black;
+    border-top: 2px solid black;
+    padding-left: 2px;
+    min-width: 50px;
+    display: inline-block;
+    letter-spacing: 3px;
+}
+
 .column-4 {
     display: flex;
     width: 80px;

@@ -86,17 +86,50 @@ function appendFourDigitProblem(jQueryElement) {
     `);
 }
 
+function appendDivisionProblem(jQueryElement) {
+    $(jQueryElement).append(`
+        <div class="">
+            <span class="sign divisor"></span>
+            <span class="sign dividend"></span>
+        </div>
+    `);
+}
+
+function division(quotient, self) {
+    var divisor = getRandomInt(8) + 2; //eliminate 0 and 1
+    var dividend = divisor * parseInt(quotient)
+
+    appendDivisionProblem(self);
+    $(self).find('.divisor').text(divisor);
+    $(self).find('.dividend').text(dividend);
+}
+
 $('.copies-7').each(function(index) {
     var copy = $(this).clone();
     for(var count = 1; count <= 7; count++) {
         var copy = $(this).clone();
-        $(copy).appendTo('body');    
+        $(copy).appendTo('body');
     }
 });
 
 $('.add-four').each(function(index) {
     appendFourDigitProblem(this);
     $(this).find('.sign').text('+');
+});
+
+$('.divide-one').each(function(index) {
+    var quotient = getRandomInt(8) + 2; //eliminate 0 and 1
+    division(quotient, this);
+});
+
+$('.divide-two').each(function(index) {
+    var quotient = getRandomInt(8) + 2 + '' + getRandomInt(9)
+    division(quotient, this);
+});
+
+$('.divide-three').each(function(index) {
+    var quotient = getRandomInt(8) + 2 + '' + getRandomInt(9) + '' + getRandomInt(9)
+    division(quotient, this);
 });
 
 $('.sub-four').each(function(index) {
