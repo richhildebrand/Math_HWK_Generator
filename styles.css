@@ -1,0 +1,45 @@
+.problem {
+    font-size: xx-large;
+    font-weight: bolder;
+    padding: 10px;
+}
+
+.page {
+    -webkit-print-color-adjust: exact;
+    page-break-after: always;
+}
+
+.row {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 150px;
+}
+
+.bottom {
+    border-bottom: 2px solid black;
+}
+
+.column-4 {
+    display: flex;
+    width: 80px;
+}
+
+.column-4 span {
+    flex: 1 25%;
+}
+
+.column-5 {
+    display: flex;
+    width: 100px;
+}
+
+.column-5 span {
+    flex: 1 20%;
+}
+
+.color-1 { color: purple; }
+.color-2 { color: hotpink; }
+.color-3 { color: green; }
+.color-5 { color: pink; }
+.color-5 { color: green; }
+.color-6 { color: red; }
