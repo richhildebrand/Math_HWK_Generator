@@ -104,9 +104,9 @@ function division(quotient, self) {
     $(self).find('.dividend').text(dividend);
 }
 
-$('.copies-7').each(function(index) {
+$('.copy').each(function(index) {
     var copy = $(this).clone();
-    for(var count = 1; count <= 7; count++) {
+    for(var count = 1; count < 4; count++) {
         var copy = $(this).clone();
         $(copy).appendTo('body');
     }
