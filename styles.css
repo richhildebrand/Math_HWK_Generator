@@ -40,11 +40,16 @@
 
 .column-5 {
     display: flex;
-    width: 100px;
+    width: 125px;
 }
 
 .column-5 span {
     flex: 1 20%;
+}
+
+.decimal {
+    flex: auto !important;
+    margin-right: 4px;
 }
 
 .color-1 { color: purple; }
@@ -53,3 +58,4 @@
 .color-5 { color: pink; }
 .color-5 { color: green; }
 .color-6 { color: red; }
+

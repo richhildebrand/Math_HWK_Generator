@@ -67,6 +67,27 @@ function appendThreeTwoDigitProblem(jQueryElement) {
     `);
 }
 
+function appendTwoTwoDigitProblemDecimal(jQueryElement) {
+    $(jQueryElement).append(`
+        <div class="column-5">
+            <span class=""></span>
+            <span class="first-number"></span>
+            <span class="number"></span>
+            <span class="decimal">.</span>
+            <span class="number"></span>
+            <span class="number"></span>
+        </div>
+        <div class="column-5 bottom">
+            <span class="sign"></span>
+            <span class="first-number"></span>
+            <span class="number"></span>
+            <span class="decimal">.</span>
+            <span class="number"></span>
+            <span class="number"></span>
+        </div>
+    `);
+}
+
 function appendFourDigitProblem(jQueryElement) {
     $(jQueryElement).append(`
         <div class="column-5">
@@ -96,9 +117,20 @@ function appendDivisionProblem(jQueryElement) {
 }
 
 function division(quotient, self) {
-    var divisor = getRandomInt(8) + 2; //eliminate 0 and 1
+    var divisor = getRandomInt(97) + 2; //eliminate 0 and 1
     var dividend = divisor * parseInt(quotient)
 
+    appendDivisionProblem(self);
+    $(self).find('.divisor').text(divisor);
+    $(self).find('.dividend').text(dividend);
+}
+
+function decimalDivision(quotient, self) {
+    var divisor = getRandomInt(95) + 4; //eliminate 0 and 1
+    var dividend = divisor * parseInt(quotient)
+
+    divisor = divisor / (Math.random() < 0.5 ? 10 : 100);
+    dividend = dividend / (Math.random() < 0.5 ? 10 : 100);
     appendDivisionProblem(self);
     $(self).find('.divisor').text(divisor);
     $(self).find('.dividend').text(dividend);
@@ -128,8 +160,13 @@ $('.divide-two').each(function(index) {
 });
 
 $('.divide-three').each(function(index) {
-    var quotient = getRandomInt(8) + 2 + '' + getRandomInt(9) + '' + getRandomInt(9)
+    var quotient = getRandomInt(8) + 2 + '' + getRandomInt(9)
     division(quotient, this);
+});
+
+$('.divide-decimal').each(function(index) {
+    var quotient = getRandomInt(99)
+    decimalDivision(quotient, this);
 });
 
 $('.sub-four').each(function(index) {
@@ -154,6 +191,11 @@ $('.multiply-two-two').each(function(index) {
 
 $('.multiply-three-two').each(function(index) {
     appendThreeTwoDigitProblem(this);
+    $(this).find('.sign').text('x');
+});
+
+$('.multiply-two-two-decimal').each(function(index) {
+    appendTwoTwoDigitProblemDecimal(this);
     $(this).find('.sign').text('x');
 });
 
