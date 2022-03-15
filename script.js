@@ -116,8 +116,7 @@ function appendDivisionProblem(jQueryElement) {
     `);
 }
 
-function division(quotient, self) {
-    var divisor = getRandomInt(97) + 2; //eliminate 0 and 1
+function division(quotient, divisor, self) {
     var dividend = divisor * parseInt(quotient)
 
     appendDivisionProblem(self);
@@ -149,19 +148,16 @@ $('.add-four').each(function(index) {
     $(this).find('.sign').text('+');
 });
 
-$('.divide-one').each(function(index) {
-    var quotient = getRandomInt(8) + 2; //eliminate 0 and 1
-    division(quotient, this);
-});
-
 $('.divide-two').each(function(index) {
     var quotient = getRandomInt(8) + 2 + '' + getRandomInt(9)
-    division(quotient, this);
+    var divisor = getRandomInt(7) + 2; //eliminate 0 and 1
+    division(quotient, divisor, this);
 });
 
 $('.divide-three').each(function(index) {
     var quotient = getRandomInt(8) + 2 + '' + getRandomInt(9)
-    division(quotient, this);
+    var divisor = getRandomInt(97) + 2; //eliminate 0 and 1
+    division(quotient, divisor, this);
 });
 
 $('.divide-decimal').each(function(index) {
